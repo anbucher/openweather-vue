@@ -1,0 +1,35 @@
+/* Overwrites, in alphabetical order */
+.forecast-grid {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -#{ map-get( $grid-column-gutter, xsmall ) };
+  margin-left: -#{ map-get( $grid-column-gutter, xsmall ) };
+}
+
+
+.forecast-grid-col {
+  flex: {
+    basis: 25%;
+    grow: 1;
+  }
+  margin-right: map-get( $grid-column-gutter, xsmall );
+  margin-left: map-get( $grid-column-gutter, xsmall );
+
+  &:first-child {
+    align-self: flex-end;
+
+    .media-object:first-of-type:before {
+      content: '';
+      height: 1px;
+      margin-top: -#{ map-get( $grid-margin-gutters, xsmall ) };
+      position: absolute;
+      right: map-get( $grid-column-gutter, xsmall );
+      left: map-get( $grid-column-gutter, xsmall );
+      background: map-get( $foundation-palette, alert );
+    }
+  }
+
+  &:last-child {
+    align-self: flex-start;
+  }
+}

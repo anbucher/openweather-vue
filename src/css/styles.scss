@@ -1,0 +1,20 @@
+@import "./vendor/_foundation-settings";
+
+@import "../../node_modules/foundation-sites/scss/foundation";
+@include foundation-global-styles;
+@include foundation-button;
+@include foundation-callout;
+@include foundation-forms;
+@include foundation-media-object;
+@include foundation-typography;
+@include foundation-xy-grid-classes;
+
+@import "./vendor/_weather-icons";
+
+@import "./components/_forecast";
+@import "./components/_form";
+
+@media screen and ( min-width: map-get( $breakpoints, small ) ) { @import "responsive/_s"; }
+@media screen and ( min-width: map-get( $breakpoints, medium ) ) { @import "responsive/_m"; }
+@media screen and ( min-width: map-get( $breakpoints, large ) ) { @import "responsive/_l"; }
+@media screen and ( min-width: map-get( $breakpoints, xlarge ) ) { @import "responsive/_xl"; }

@@ -1,0 +1,21 @@
+.location-form {
+  display: block;
+  position: relative;
+
+  .getGPS {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  .input-group-label {
+    border-right: 0;
+    border-left: 0;
+  }
+
+  .v-select { // added here for extra specificity
+    .dropdown-toggle {
+      border-radius: 0;
+    }
+  }
+}
+

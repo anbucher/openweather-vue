@@ -1,0 +1,4 @@
+.idea/
+.vscode/
+node_modules/
+src/js/vue/store/APIs.js
