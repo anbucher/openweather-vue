@@ -10,8 +10,8 @@ Vue.use(Vuex);
  * You should obtain your own keys and make a file like:
  *
  * export const keys = {
- *   geocodingApiKey: 'AIzaSyDr7r5u1A3rdL8go9CG7TwcWEMk_7a1JOY',
- *   owmApiKey: '5fa7b0159c7c9acc582daccb7d00233f'
+ *   geocodingApiKey: 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
+ *   owmApiKey: 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
  * }
  *
  * or just enter your key strings in state object
