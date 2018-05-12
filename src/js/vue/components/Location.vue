@@ -96,7 +96,6 @@
       /* executes when the browser can’t or the user won’t allow the use of GPS location */
       geoError (error) { /* eslint-disable-line */
         /* just disable the button! */
-
         document.querySelector('.getGPS').disabled = true;
       },
 
@@ -200,6 +199,3 @@
     }
   }
 </script>
-
-<style>
-</style>
