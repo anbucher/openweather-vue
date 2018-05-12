@@ -1,4 +1,4 @@
-import { createLocalVue, shallow } from '@vue/test-utils';
+import { createLocalVue, shallowMount } from '@vue/test-utils';
 import Vuex from 'vuex';
 import expect from 'expect';
 import moxios from 'moxios';
@@ -17,7 +17,7 @@ describe('Location', () => {
   beforeEach(() => {
     moxios.install();
 
-    wrapper = shallow(Location, {
+    wrapper = shallowMount(Location, {
       localVue,
       store,
       attachToDocument: true
