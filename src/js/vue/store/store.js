@@ -18,6 +18,9 @@ Vue.use(Vuex);
  */
 import { keys } from './APIs';
 
+import * as actions from './actions';
+import * as mutations from './mutations';
+
 export const store = new Vuex.Store({
   state: {
     location: {
@@ -31,10 +34,6 @@ export const store = new Vuex.Store({
     owmApiKey: keys.owmApiKey
   },
 
-  mutations: {
-    updateLocation(state, location) {
-      state.location.coords = location[0];
-      state.location.text = location[1];
-    }
-  }
+  actions,
+  mutations
 });

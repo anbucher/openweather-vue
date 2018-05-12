@@ -1,4 +1,4 @@
-import { createLocalVue, shallow } from '@vue/test-utils';
+import { createLocalVue, shallowMount } from '@vue/test-utils';
 import Vuex from 'vuex';
 import expect from 'expect';
 
@@ -14,7 +14,7 @@ describe('Forecast', () => {
   let wrapper;
 
   beforeEach(() => {
-    wrapper = shallow(Forecast, {
+    wrapper = shallowMount(Forecast, {
       localVue,
       store,
       attachToDocument: true
@@ -27,5 +27,5 @@ describe('Forecast', () => {
 
   /* I have no clue about how to test the rendering of the weather forecast,
    * since this markup is build after the _renderWeather_ event is emitted on the root EventBus
-   * still searching for anwers… */
+   * still searching for answers… */
 });

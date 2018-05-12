@@ -10,16 +10,16 @@
 
     <div class="forecast-grid">
       <div class="forecast-grid-col" v-for="day in weatherData" :key="day[0].dt">
-        <h3 class="forecast-title">{{ day[0]|formattedDate }}</h3>
+        <h3 class="forecast-title">{{ day[0] | formattedDate }}</h3>
 
         <div class="media-object" v-for="hour in day" :key="hour.dt">
           <div class="media-object-section">
             <div class="thumbnail">
-              <i class="wi" :class="hour|iconClassName"></i>
+              <i class="wi" :class="hour | iconClassName"></i>
             </div>
           </div>
           <div class="media-object-section main-section">
-            <h4 class="forecast-hourly-title"><time :datetime="hour.dt_txt">{{ hour|formattedTime }}</time></h4>
+            <h4 class="forecast-hourly-title"><time :datetime="hour.dt_txt">{{ hour | formattedTime }}</time></h4>
             <p>
               <strong>{{ Math.floor(hour.main.temp) }}</strong>&deg;
               {{ hour.weather[0].main }}
@@ -33,16 +33,12 @@
 
 <script>
   import moment from 'moment';
-  import { mapState } from 'vuex';
   import { EventBus } from '../helpers/event-bus';
 
   export default {
     computed: {
-      /* http://babeljs.io/docs/plugins/transform-object-rest-spread/ */
-      ...mapState(['location']),
-
       selectedLocation () {
-        return `<strong>${this.location.text}</strong> — ${this.location.coords.lat}, ${this.location.coords.lng}`;
+        return `<strong>${this.$store.state.location.text}</strong> — ${this.$store.state.location.coords.lat}, ${this.$store.state.location.coords.lng}`;
       }
     },
 
@@ -103,6 +99,3 @@
     }
   }
 </script>
-
-<style>
-</style>

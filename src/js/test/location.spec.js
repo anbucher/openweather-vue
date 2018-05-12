@@ -1,4 +1,4 @@
-import { createLocalVue, shallow } from '@vue/test-utils';
+import { createLocalVue, shallowMount } from '@vue/test-utils';
 import Vuex from 'vuex';
 import expect from 'expect';
 import moxios from 'moxios';
@@ -17,7 +17,7 @@ describe('Location', () => {
   beforeEach(() => {
     moxios.install();
 
-    wrapper = shallow(Location, {
+    wrapper = shallowMount(Location, {
       localVue,
       store,
       attachToDocument: true
@@ -41,13 +41,13 @@ describe('Location', () => {
   });
 
   it('gets location suggestions from the API and updates the component options', (done) => {
-    wrapper.vm.onSearch('Άνω Πατήσια', () => {});
+    wrapper.vm.onSearch('Irakleiou 61', () => {});
 
     moxios.stubRequest(/.?address/g, {
       response: {
         results: [
           {
-            "formatted_address" : "Ano Patisia, Athina 111 41, Greece",
+            "formatted_address" : "Irakliou, Athina 111 41, Greece",
             "geometry" : {
               "location" : {
                 "lat" : 38.0175327,
@@ -60,9 +60,9 @@ describe('Location', () => {
     });
 
     moxios.wait(() => {
-      expect(wrapper.vm.options[0].text).toBe('Ano Patisia, Athina 111 41, Greece');
+      expect(wrapper.vm.options[0].text).toBe('Irakliou, Athina 111 41, Greece');
       done();
-    })
+    }, 600) /* the _fetchLocationSuggestion Vuex action that fetches suggestion is debounced! */
   });
 
   it('handles location suggestions API error', (done) => {
@@ -81,7 +81,7 @@ describe('Location', () => {
     moxios.wait(() => {
       expect(wrapper.vm.message.className).toBe('alert');
       done();
-    })
+    }, 600) /* the _fetchLocationSuggestion Vuex action that fetches suggestion is debounced! */
   });
 
   it('gets a “friendly” name for the selected coords', (done) => {
@@ -98,7 +98,7 @@ describe('Location', () => {
     });
 
     moxios.wait(() => {
-      expect(wrapper.vm.location.text).toBe('Pl. Omonias 19a, Athina 104 31, Greece');
+      expect(wrapper.vm.$store.state.location.text).toBe('Pl. Omonias 19a, Athina 104 31, Greece');
       done();
     })
   });
