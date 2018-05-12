@@ -27,7 +27,6 @@
 
 <script>
   import Vue from 'vue';
-  import { mapMutations } from 'vuex';
   import _debounce from 'lodash/debounce';
   import vSelect from '../vendor/vue-select/index';
   import { EventBus } from '../helpers/event-bus';
@@ -46,8 +45,6 @@
     },
 
     methods: {
-      ...mapMutations(['updateLocation']),
-
       /* gets a list of place suggestions, returned from Google Geocode API, and feeds them to the Vue Select, via the _options_ data */
       buildLocationSuggestList (list) {
         this.options = [];
@@ -145,7 +142,7 @@
       /* requests the weather forecast from OpenWeatherMap API, using the Latitude and Longitude discovered earlier */
       getWeatherData (coords, text) {
         /* save the location address and coords to Vuex state */
-        this.updateLocation([coords, text]);
+        this.$store.commit('updateLocation', [coords, text]);
 
         /* the API responds with a forecast for 5 days / 3 hours intervals — that would be 40 rows */
         this.$store.dispatch('fetchWeather', coords).then((response) => { /* eslint-disable-line */
