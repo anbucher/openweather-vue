@@ -33,16 +33,12 @@
 
 <script>
   import moment from 'moment';
-  import { mapState } from 'vuex';
   import { EventBus } from '../helpers/event-bus';
 
   export default {
     computed: {
-      /* http://babeljs.io/docs/plugins/transform-object-rest-spread/ */
-      ...mapState(['location']),
-
       selectedLocation () {
-        return `<strong>${this.location.text}</strong> — ${this.location.coords.lat}, ${this.location.coords.lng}`;
+        return `<strong>${this.$store.state.location.text}</strong> — ${this.$store.state.location.coords.lat}, ${this.$store.state.location.coords.lng}`;
       }
     },
 
