@@ -9,10 +9,9 @@ This app was made while I learn [webpack](https://webpack.js.org/), [Vue.js](htt
 
 ## ToDo
 - [ ] Use the SVGs of [Weather Icons](https://erikflowers.github.io/weather-icons/) instead of the font files
-- [ ] Add more tests for the _Forecast_ component
 
 ## Instructions
-If you want to run this project, you need a couple of API keys: [Google Geocoding API](https://developers.google.com/maps/documentation/geocoding/start#get-a-key) and [OpenWeatherMap](https://openweathermap.org/appid). These are saved in Vuex state (for no particular reason) — there is a related comment in `/src/js/vue/store.js`.
+If you want to run this project, you need a couple of API keys: [Google Geocoding API](https://developers.google.com/maps/documentation/geocoding/start#get-a-key) and [OpenWeatherMap](https://openweathermap.org/appid). These are saved in Vuex state — there is a related comment in `/src/js/vue/store.js`.
 
 There are 4 _npm scripts_:
 * `npm run dev` starts the _webpack-dev-server_ with your local IP at the default port (8080), for you to develop your application. I still have an issue with rebuilding and injecting the stylesheets and I will find a solution, sooner or later…
